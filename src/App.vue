@@ -20,6 +20,11 @@
       <li>น้ำหนัก : {{  general.weight }} กิโลกรัม</li>
       <li>สถานะ : {{  general.status }} </li>
     </ul>
+    <button @click="showData()">คลิกเพื่อคำนวณ</button>
+    <div>
+      <button @click="increment()">เพิ่ม</button>
+      <button @click="decrement()">ลด</button>
+      </div>
   </section>
 
 </template>
@@ -48,6 +53,15 @@
     methods: {
       getFullName() {
         return `${this.firstName} ${this.lastName}`
+      },
+      showData() {
+        alert(this.getFullName())
+      },
+      increment() {
+        this.age++
+      },
+      decrement() {
+        this.age--
       }
     }
   }
