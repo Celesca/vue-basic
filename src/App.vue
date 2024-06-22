@@ -1,3 +1,12 @@
+<template>
+  <section>
+    <h1>ชื่อผู้สมัคร : {{firstName}} {{ lastName }}</h1>
+    <h2>{{ 500 + 200 }}</h2>
+    <h2>อายุ : {{ age }}</h2>
+  </section>
+
+</template>
+
 <script>
   export default {
     name: 'App',
@@ -11,9 +20,3 @@
   }
 </script>
 
-<template>
-  <section>
-  <h1>Hello World</h1>
-  </section>
-
-</template>
