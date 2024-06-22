@@ -1,7 +1,12 @@
 <template>
   <section>
     <img :src="picture" :width="size" :height="size" alt=""/>
-    ป้อนชื่อเล่น : <input type="text" v-on:input="setNickname"/>
+    <form @submit.prevent="handleSubmit">
+      <label>ป้อนชื่อเล่น</label>
+      <input type="text" v-on:input="setNickname"/>
+
+      <button type="submit">บันทึก</button>
+    </form>
     <h1>ชื่อผู้สมัคร : {{  getFullName() }}</h1>
     <h1>ชื่อเล่น : {{ nickname }}</h1>
     <h2>{{ 500 + 200 }}</h2>
@@ -24,8 +29,8 @@
     </ul>
     <button @click="showData()">คลิกเพื่อคำนวณ</button>
     <div>
-      <button @click="increment(10)">เพิ่ม</button>
-      <button @click="decrement(10)">ลด</button>
+      <button @click.ctrl="increment(10)">เพิ่ม</button>
+      <button @click.middle="decrement(3)" @click.left="decrement(1)">ลด</button>
       </div>
   </section>
 
@@ -68,6 +73,9 @@
       },
       setNickname(event) {
         this.nickname = event.target.value
+      },
+      handleSubmit() {
+        alert("บันทึกข้อมูล " + this.nickname + " เรียบร้อยแล้ว");
       }
     }
   }
