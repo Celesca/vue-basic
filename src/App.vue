@@ -1,5 +1,6 @@
 <template>
   <section>
+    <img v-bind:src="picture" width="" height="" alt=""/>
     <h1>ชื่อผู้สมัคร : {{  getFullName() }}</h1>
     <h2>{{ 500 + 200 }}</h2>
     <h2>อายุ : {{ age }}</h2>
@@ -16,7 +17,8 @@
         firstName: "Kong",
         lastName:"Ruksiam",
         age:15,
-        address: "<i>กรุงเทพมหานคร</i>"
+        address: "<i>กรุงเทพมหานคร</i>",
+        picture: "https://cdn-icons-png.flaticon.com/128/16770/16770369.png",
       }
     },
     methods: {
