@@ -22,8 +22,8 @@
     </ul>
     <button @click="showData()">คลิกเพื่อคำนวณ</button>
     <div>
-      <button @click="increment()">เพิ่ม</button>
-      <button @click="decrement()">ลด</button>
+      <button @click="increment(10)">เพิ่ม</button>
+      <button @click="decrement(10)">ลด</button>
       </div>
   </section>
 
@@ -57,11 +57,11 @@
       showData() {
         alert(this.getFullName())
       },
-      increment() {
-        this.age++
+      increment(value) {
+        this.age += value
       },
-      decrement() {
-        this.age--
+      decrement(value) {
+        this.age -= value
       }
     }
   }
