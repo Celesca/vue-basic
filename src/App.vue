@@ -1,7 +1,9 @@
 <template>
   <section>
     <img :src="picture" :width="size" :height="size" alt=""/>
+    ป้อนชื่อเล่น : <input type="text" v-on:input="setNickname"/>
     <h1>ชื่อผู้สมัคร : {{  getFullName() }}</h1>
+    <h1>ชื่อเล่น : {{ nickname }}</h1>
     <h2>{{ 500 + 200 }}</h2>
     <h2>อายุ : {{ age }}</h2>
     <h2>ที่อยู่ : <span v-html="address"></span></h2>
@@ -36,6 +38,7 @@
       return {
         firstName: "Kong",
         lastName:"Ruksiam",
+        nickname:"",
         age:15,
         address: "<i>กรุงเทพมหานคร</i>",
         picture: "https://cdn-icons-png.flaticon.com/128/16770/16770369.png",
@@ -62,6 +65,9 @@
       },
       decrement(value) {
         this.age -= value
+      },
+      setNickname(event) {
+        this.nickname = event.target.value
       }
     }
   }
