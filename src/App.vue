@@ -5,6 +5,7 @@
     <h2>{{ 500 + 200 }}</h2>
     <h2>อายุ : {{ age }}</h2>
     <h2>ที่อยู่ : <span v-html="address"></span></h2>
+    <a :href="social" target="_blank">Facebook</a>
   </section>
 
 </template>
@@ -20,6 +21,7 @@
         address: "<i>กรุงเทพมหานคร</i>",
         picture: "https://cdn-icons-png.flaticon.com/128/16770/16770369.png",
         size: 50,
+        social: "https://www.facebook.com/kongruksiamtutorial"
       }
     },
     methods: {
