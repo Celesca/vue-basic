@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>ชื่อผู้สมัคร : {{firstName}} {{ lastName }}</h1>
+    <h1>ชื่อผู้สมัคร : {{  getFullName() }}</h1>
     <h2>{{ 500 + 200 }}</h2>
     <h2>อายุ : {{ age }}</h2>
     <h2>ที่อยู่ : <span v-html="address"></span></h2>
@@ -17,6 +17,11 @@
         lastName:"Ruksiam",
         age:15,
         address: "<i>กรุงเทพมหานคร</i>"
+      }
+    },
+    methods: {
+      getFullName() {
+        return `${this.firstName} ${this.lastName}`
       }
     }
   }
