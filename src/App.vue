@@ -1,13 +1,83 @@
-<script setup>
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <section>
+    <img :src="picture" :width="size" :height="size" alt=""/>
+    <form @submit.prevent="handleSubmit">
+      <label>ป้อนชื่อเล่น</label>
+      <input type="text" v-on:input="setNickname"/>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+      <button type="submit">บันทึก</button>
+    </form>
+    <h1>ชื่อผู้สมัคร : {{  getFullName() }}</h1>
+    <h1>ชื่อเล่น : {{ nickname }}</h1>
+    <h2>{{ 500 + 200 }}</h2>
+    <h2>อายุ : {{ age }}</h2>
+    <h2>ที่อยู่ : <span v-html="address"></span></h2>
+    <p> Social : <a :href="social" target="_blank">Facebook</a></p>
+    <p>งานอดิเรก</p>
+    <ul>
+      <li>{{ hobby[0] }}</li>
+      <li>{{ hobby[1] }}</li>
+      <li>{{ hobby[2] }}</li>
+    </ul>
+
+    <p>ข้อมูลทั่วไป</p>
+    <ul>
+      <li>เพศ : {{  general.gender }} </li>
+      <li>ส่วนสูง : {{  general.height }} เซนติเมตร</li>
+      <li>น้ำหนัก : {{  general.weight }} กิโลกรัม</li>
+      <li>สถานะ : {{  general.status }} </li>
+    </ul>
+    <button @click="showData()">คลิกเพื่อคำนวณ</button>
+    <div>
+      <button @click.ctrl="increment(10)">เพิ่ม</button>
+      <button @click.middle="decrement(3)" @click.left="decrement(1)">ลด</button>
+      </div>
+  </section>
 
 </template>
+
+<script>
+  export default {
+    name: 'App',
+    data() {
+      return {
+        firstName: "Kong",
+        lastName:"Ruksiam",
+        nickname:"",
+        age:15,
+        address: "<i>กรุงเทพมหานคร</i>",
+        picture: "https://cdn-icons-png.flaticon.com/128/16770/16770369.png",
+        size: 50,
+        social: "https://www.facebook.com/kongruksiamtutorial",
+        hobby: ["เล่นเกม", "อ่านหนังสือ", "เขียนโปรแกรม"],
+        general: {
+          gender: "ชาย",
+          height: 170,
+          weight: 60,
+          status: false
+        }
+      }
+    },
+    methods: {
+      getFullName() {
+        return `${this.firstName} ${this.lastName}`
+      },
+      showData() {
+        alert(this.getFullName())
+      },
+      increment(value) {
+        this.age += value
+      },
+      decrement(value) {
+        this.age -= value
+      },
+      setNickname(event) {
+        this.nickname = event.target.value
+      },
+      handleSubmit() {
+        alert("บันทึกข้อมูล " + this.nickname + " เรียบร้อยแล้ว");
+      }
+    }
+  }
+</script>
+
