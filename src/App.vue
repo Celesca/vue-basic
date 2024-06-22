@@ -3,6 +3,7 @@
     <h1>ชื่อผู้สมัคร : {{firstName}} {{ lastName }}</h1>
     <h2>{{ 500 + 200 }}</h2>
     <h2>อายุ : {{ age }}</h2>
+    <h2>ที่อยู่ : <span v-html="address"></span></h2>
   </section>
 
 </template>
@@ -14,7 +15,8 @@
       return {
         firstName: "Kong",
         lastName:"Ruksiam",
-        age:15
+        age:15,
+        address: "<i>กรุงเทพมหานคร</i>"
       }
     }
   }
