@@ -2,7 +2,12 @@
   <header>
     <h1>ระบบจัดการข้อมูลพนักงาน</h1>
   </header>
+  <div class="show-button-container">
+  <button class="show-button" @click="toggleShowForm">เพิ่มพนักงานใหม่</button>
+</div>
+  <div v-show="isShowForm">
   <form-component></form-component>
+</div>
   <section class="employee-content">
     <h2>ข้อมูลพนักงาน</h2>
     <ListData/>
@@ -20,6 +25,17 @@ import ListData from './components/ListData.vue'
       ListData,
       FormComponent
     },
+    data () {
+      return {
+        isShowForm: false
+      }
+    },
+    methods: {
+      toggleShowForm() {
+        this.isShowForm = !this.isShowForm
+      
+      }
+    }
   }
 
 </script>
@@ -56,5 +72,19 @@ header {
   border-bottom: 4px solid #ccc;
   color: purple;
   margin: 0 0 1rem 0;
+}
+
+.show-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.show-button {
+  padding: 0.5rem 1rem;
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 </style>

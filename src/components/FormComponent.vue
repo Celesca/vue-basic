@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form @submit.prevent="submitForm">
         <div class="form-control">
             <label for="emp-name">ชื่อพนักงาน</label>
             <input type="text" v-model.trim="employee.name"/>
@@ -46,7 +46,7 @@
             <button>บันทึกข้อมูล</button>
         </div>
     </form>
-    {{ JSON.stringify(employee)}}
+    <!-- {{ JSON.stringify(employee)}} -->
 </template>
 
 
@@ -62,6 +62,11 @@ export default {
                 gender: "",
                 skill: []
             }
+        }
+    },
+    methods: {
+        submitForm() {
+           console.log(this.employee);
         }
     }
 }
