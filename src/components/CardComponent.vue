@@ -1,7 +1,9 @@
 <template>
   <li>
     <img :src="image"/>
-    <slot></slot>
+    <slot name="card-header"></slot>
+    <slot name="card-button"></slot>
+    <slot name="card-content"></slot>
   </li>
 </template>
 
