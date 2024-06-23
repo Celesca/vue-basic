@@ -9,6 +9,7 @@
 </template>
 
 <script>
+
 import ListData from './components/ListData.vue'
 
   export default {
