@@ -1,8 +1,9 @@
 <template>
     <div> {{ message }} </div>
-    <PersonComponent name="ก้อง" salary=30000></PersonComponent>
-    <PersonComponent name="โจ้" salary=20000></PersonComponent>
-    <PersonComponent name="เจมส์" salary=15000 ></PersonComponent>
+    <ul>
+       <PersonComponent v-for="(item, index) in employees" :key="index"
+       :name="item.name" :salary="item.salary"></PersonComponent>
+    </ul>
 </template>
 
 <script>
@@ -13,6 +14,7 @@
         components: {
             PersonComponent
         },
+        props: ["employees"],
         data() {
             return {
                 message: "แสดงรายชื่อพนักงานทุกคน"

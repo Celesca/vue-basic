@@ -3,7 +3,7 @@
     <h1 class="heading">App Component</h1>
   </div>
   <FormComponent></FormComponent>
-  <ListData></ListData>
+  <ListData :employees="employees"></ListData>
 </template>
 
 <script>
@@ -15,6 +15,16 @@ import FormComponent from './components/FormComponent.vue'
     components: {
       ListData,
       FormComponent
+    },
+    data() {
+      return {
+        employees: [
+          {name:"ก้อง", salary:30000},
+          {name:"โจ้", salary:20000},
+          {name:"เจมส์", salary:15000},
+          {name:"ซีโร่", salary:25000},
+        ]
+      }
     }
   }
 
