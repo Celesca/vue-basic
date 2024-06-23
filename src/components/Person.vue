@@ -1,9 +1,9 @@
 <template lang="">
     <li>
        <h1> {{ name }}</h1>
-       <button>ดูรายละเอียด</button> &nbsp;
+       <button @click="showDescription(id)">ดูรายละเอียด</button> &nbsp;
        <button>ลบข้อมูล</button>
-       <div>
+       <div v-show="isVisible">
             <p>เงินเดือน : {{ salary }} , ตำแหน่งงาน : {{ department }}</p>
        </div>
     </li>
@@ -31,6 +31,11 @@ export default {
             type: Boolean,
         }
     },
+    methods: {
+        showDescription(id) {
+            this.$emit("show", id);
+        }
+    }
 }
 </script>
 <style scoped>

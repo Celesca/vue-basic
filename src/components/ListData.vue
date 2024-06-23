@@ -2,7 +2,9 @@
     <div> {{ message }} </div>
     <ul>
         <PersonComponent v-for="item in employees" :id="item.id" :key="item.id" :name="item.name" :salary="item.salary"
-            :department="item.department" :isVisible="item.isVisible"></PersonComponent>
+            :department="item.department" :isVisible="item.isVisible"
+            @show="toggleVisible"
+            ></PersonComponent>
     </ul>
 </template>
 
@@ -23,6 +25,16 @@ export default {
                 { id: 4, name: "ซีโร่", salary: 12000, department: "การตลาด", isVisible: false },
                 { id: 5, name: "ตุ๊ก", salary: 25000, department: "โปรแกรมเมอร์", isVisible: false },
             ]
+        }
+    },
+    methods: {
+        toggleVisible(id) {
+            this.employees = this.employees.map((item) => {
+                if (item.id === id) {
+                    return {...item, isVisible: !item.isVisible }
+                }
+                return item
+            })
         }
     }
 }
