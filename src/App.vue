@@ -14,12 +14,15 @@
     <h2>อายุ : {{ age }}</h2>
     <h2>ที่อยู่ : <span v-html="address"></span></h2>
     <p> Social : <a :href="social" target="_blank">Facebook</a></p>
-    <p>งานอดิเรก</p>
-    <ul>
-      <li>{{ hobby[0] }}</li>
-      <li>{{ hobby[1] }}</li>
-      <li>{{ hobby[2] }}</li>
-    </ul>
+    <p v-if="hobby.length === 0">ไม่มีงานอดิเรก</p>
+    <div v-else>
+      <p>งานอดิเรก</p>
+      <ul>
+        <li>{{ hobby[0] }}</li>
+        <li>{{ hobby[1] }}</li>
+        <li>{{ hobby[2] }}</li>
+      </ul>
+    </div>
 
     <p>ข้อมูลทั่วไป</p>
     <ul>
@@ -50,7 +53,7 @@
         picture: "https://cdn-icons-png.flaticon.com/128/16770/16770369.png",
         size: 50,
         social: "https://www.facebook.com/kongruksiamtutorial",
-        hobby: ["เล่นเกม", "อ่านหนังสือ", "เขียนโปรแกรม"],
+        hobby: ["เล่นเกมส์", "อ่านหนังสือ", "เล่นกีฬา"],
         general: {
           gender: "ชาย",
           height: 170,
