@@ -24,10 +24,7 @@
 
     <p>ข้อมูลทั่วไป</p>
     <ul>
-      <li>เพศ : {{  general.gender }} </li>
-      <li>ส่วนสูง : {{  general.height }} เซนติเมตร</li>
-      <li>น้ำหนัก : {{  general.weight }} กิโลกรัม</li>
-      <li>สถานะ : {{  general.status }} </li>
+     <li v-for="(item,key) in general" :key="key">{{ key }} : {{ item }}</li>
     </ul>
     <button @click="showData()">คลิกเพื่อคำนวณ</button>
     <div>
