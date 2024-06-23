@@ -7,7 +7,10 @@
     <template v-slot:card-content>
         <p>เงินเดือน : {{ salary }} , ตำแหน่งงาน : {{ department }}</p>
         <p>เพศ : {{ gender }}</p>
-        <p>ทักษะด้านภาษา : {{ skill }}</p>
+        <p>ทักษะด้านภาษา : </p>
+        <ul>
+            <li v-for="(item, index) in skill" :key="index">{{ item }}</li>
+        </ul>
     </template>
     </CardComponent>
 </template>
@@ -49,6 +52,14 @@ p {
     color: white;
 }
 h1 {
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
     color: white;
 }
 
