@@ -1,7 +1,11 @@
 <template>
-    <div>
-        <h1>{{ message }}</h1>
-    </div>
+    <form>
+        <div class="form-control">
+            <label for="emp-name">ชื่อพนักงาน</label>
+            <input type="text" v-model="employee.name"/>
+
+        </div>
+    </form>
 </template>
 
 
@@ -10,7 +14,10 @@ export default {
     name:"FormComponent",
     data() {
         return {
-            message: "แบบฟอร์มบันทึกข้อมูลพนักงาน"
+            employee: {
+                name: "kongruksiam",
+                salary: 15000,
+            }
         }
     }
 }
