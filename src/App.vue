@@ -6,34 +6,42 @@
   <button class="show-button" @click="toggleShowForm">เพิ่มพนักงานใหม่</button>
 </div>
   <div v-show="isShowForm">
-  <form-component></form-component>
+  <form-component @save="insertEmployee"/>
 </div>
-  <section class="employee-content">
+  <section class="employee-content" v-if="employees.length > 0">
     <h2>ข้อมูลพนักงาน</h2>
-    <ListData/>
+    <NewListData :employees="employees"/>
+  </section>
+  <section v-else>
+    <h2>ไม่มีข้อมูลพนักงาน</h2>
   </section>
 </template>
 
 <script>
 
 import FormComponent from './components/FormComponent.vue'
-import ListData from './components/ListData.vue'
+// import ListData from './components/ListData.vue'
+import NewListData from './components/NewListData.vue'
 
   export default {
     name:"App",
     components: {
-      ListData,
+      NewListData,
       FormComponent
     },
     data () {
       return {
-        isShowForm: false
+        isShowForm: false,
+        employees: []
       }
     },
     methods: {
       toggleShowForm() {
         this.isShowForm = !this.isShowForm
       
+      },
+      insertEmployee(data) {
+        this.employees.push(data);
       }
     }
   }

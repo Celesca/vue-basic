@@ -66,9 +66,21 @@ export default {
     },
     methods: {
         submitForm() {
-           console.log(this.employee);
+            const newEmployee={
+                ...this.employee
+            }
+           this.$emit("save", newEmployee);
+           this.resetForm();
+           
+        },
+        resetForm() {
+            this.employee.name = "",
+            this.employee.salary = 15000,
+            this.employee.department = "ฝ่ายการตลาด",
+            this.employee.gender = "",
+            this.employee.skill = []
         }
-    }
+}
 }
 
 </script>
