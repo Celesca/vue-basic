@@ -18,9 +18,7 @@
     <div v-else>
       <p>งานอดิเรก</p>
       <ul>
-        <li>{{ hobby[0] }}</li>
-        <li>{{ hobby[1] }}</li>
-        <li>{{ hobby[2] }}</li>
+          <li v-for="(item,index) in hobby" :key="index">{{ index }} - {{ item }}</li>
       </ul>
     </div>
 
