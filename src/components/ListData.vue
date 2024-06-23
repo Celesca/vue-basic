@@ -1,5 +1,4 @@
 <template>
-    <div> {{ message }} </div>
     <ul>
         <PersonComponent v-for="item in employees" :id="item.id" :key="item.id" :name="item.name" :salary="item.salary"
             :department="item.department" :isVisible="item.isVisible"
@@ -14,7 +13,7 @@ import PersonComponent from './Person.vue'
 export default {
     name: "ListData",
     components: {
-        PersonComponent
+        PersonComponent,
     },
     data() {
         return {

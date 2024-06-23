@@ -4,31 +4,26 @@
             <h1> {{ name }}</h1>
         </template>
 
-    <template v-slot:card-button>
-    <button @click="showDescription(id)">ดูรายละเอียด</button> &nbsp;
-    <button @click="deleteEmployee(id)">ลบข้อมูล</button>
-    </template>
-
     <template v-slot:card-content>
-    <transition name="fade">
-        <div v-show="isVisible">
         <p>เงินเดือน : {{ salary }} , ตำแหน่งงาน : {{ department }}</p>
-        </div>
-    </transition>
+        <p>เพศ : {{ gender }}</p>
+        <p>ทักษะด้านภาษา : </p>
+        <ul>
+            <li v-for="(item, index) in skill" :key="index">{{ item }}</li>
+        </ul>
     </template>
     </CardComponent>
-    </template>
+</template>
+
+
 <script>
 import CardComponent from "./CardComponent.vue";
 export default {
-    name: "PersonComponent",
+    name: "NewPerson",
     components: {
         CardComponent,
     },
     props: {
-        id: {
-            type: Number,
-        },
         name: {
             type: String,
             required: true,
@@ -41,22 +36,30 @@ export default {
             type: String,
             required: true,
         },
-        isVisible: {
-            type: Boolean,
+        gender: {
+            type: String,
+            required: true,
         },
-    },
-    methods: {
-        showDescription(id) {
-            this.$emit("show", id);
-        },
-        deleteEmployee(id) {
-            this.$emit("delete", id);
-        },
+        skill: {
+            type: Array,
+
+        }
     },
 };
 </script>
 <style scoped>
+p {
+    color: white;
+}
 h1 {
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
     color: white;
 }
 
