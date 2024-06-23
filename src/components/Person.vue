@@ -1,5 +1,5 @@
 <template lang="">
-    <li>
+    <CardComponent>
        <h1> {{ name }}</h1>
        <button @click="showDescription(id)">ดูรายละเอียด</button> &nbsp;
        <button @click="deleteEmployee(id)">ลบข้อมูล</button>
@@ -8,11 +8,15 @@
             <p>เงินเดือน : {{ salary }} , ตำแหน่งงาน : {{ department }}</p>
        </div>
     </transition>
-    </li>
+    </CardComponent>
 </template>
 <script>
+import CardComponent from './CardComponent.vue';
 export default {
     name:"PersonComponent",
+    components: {
+        CardComponent
+    },
     props: {
         id: {
             type:Number
@@ -44,14 +48,8 @@ export default {
 }
 </script>
 <style scoped>
-    li {
-        margin: 1rem;
-        font-size: 1.25rem;
-        font-weight: bold;
-        background: #8ddba4;
-        padding: 0.5rem;
-        color: #1f1f1f;
-        border-radius: 25px;
+    h1 {
+        color: white;
     }
 
     button {
@@ -72,5 +70,5 @@ export default {
     .fade-enter-active {
         transition: all 0.5s linear;
     }
-    
+
 </style>

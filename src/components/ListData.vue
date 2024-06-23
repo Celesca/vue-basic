@@ -13,7 +13,7 @@ import PersonComponent from './Person.vue'
 export default {
     name: "ListData",
     components: {
-        PersonComponent
+        PersonComponent,
     },
     data() {
         return {
