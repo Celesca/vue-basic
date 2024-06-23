@@ -12,8 +12,7 @@
     <h1>ชื่อเล่น : {{ nickname }}</h1>
     <h2>{{ 500 + 200 }}</h2>
     <h2>อายุ : {{ age }}</h2>
-    {{ isVisible }}
-    <button @click="toggleVisible()">แสดงรายละเอียด</button>
+    <button @click="toggleVisible()">{{ isVisible ? "ซ่อน" : "แสดง"}}รายละเอียด</button>
       <article v-show="isVisible">
         <h2>ที่อยู่ : <span v-html="address"></span></h2>
         <p> Social : <a :href="social" target="_blank">Facebook</a></p>
