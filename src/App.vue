@@ -1,9 +1,10 @@
 <template>
   <section>
-    <img :src="picture" :width="size" :height="size" alt=""/>
+    <img :src="picture" :width="size" :height="size" alt="icon" ref="imageEl"/>
+    <br/>
     <form @submit.prevent="handleSubmit">
       <label>ป้อนชื่อเล่น</label>
-      <input type="text" v-on:input="setNickname"/>
+      <input type="text" ref="nickNameEl"/>
 
       <button type="submit">บันทึก</button>
     </form>
@@ -75,7 +76,7 @@
         this.nickname = event.target.value
       },
       handleSubmit() {
-        alert("บันทึกข้อมูล " + this.nickname + " เรียบร้อยแล้ว");
+        this.nickname = this.$refs.nickNameEl.value;
       }
     }
   }
