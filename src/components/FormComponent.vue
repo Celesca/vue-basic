@@ -8,10 +8,19 @@
             <label for="salary">เงินเดือน</label>
             <input type="number" v-model="employee.salary"/>
         </div>
+        <div class="form-control">
+            <label for="department">ตำแหน่งงาน</label>
+            <select v-model="employee.department">
+                <option value="ฝ่ายการตลาด">ฝ่ายการตลาด</option>
+                <option value="ฝ่ายบุคคล">ฝ่ายบุคคล</option>
+                <option value="ฝ่ายบัญชี">ฝ่ายบัญชี</option>
+            </select>
+        </div>
         <div>
             <button>บันทึกข้อมูล</button>
         </div>
     </form>
+    {{ JSON.stringify(employee)}}
 </template>
 
 
@@ -23,6 +32,7 @@ export default {
             employee: {
                 name: "kongruksiam",
                 salary: 15000,
+                department: "ฝ่ายการตลาด"
             }
         }
     }
