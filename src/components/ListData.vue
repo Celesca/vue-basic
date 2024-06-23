@@ -14,11 +14,16 @@
         components: {
             PersonComponent
         },
-        props: ["employees"],
         data() {
             return {
-                message: "แสดงรายชื่อพนักงานทุกคน"
-            }
-        }
+                employees: [
+                {name:"ก้อง", salary:30000},
+                {name:"โจ้", salary:20000},
+                {name:"เจมส์", salary:15000},
+                {name:"ซีโร่"},
+                {name:"ตุ๊ก", salary:25000}
+                ]
+      }
+    }
     }
 </script>
