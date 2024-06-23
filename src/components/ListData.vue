@@ -3,7 +3,7 @@
     <ul>
         <PersonComponent v-for="item in employees" :id="item.id" :key="item.id" :name="item.name" :salary="item.salary"
             :department="item.department" :isVisible="item.isVisible"
-            @show="toggleVisible"
+            @show="toggleVisible" @delete="removeEmployee"
             ></PersonComponent>
     </ul>
 </template>
@@ -34,6 +34,11 @@ export default {
                     return {...item, isVisible: !item.isVisible }
                 }
                 return item
+            })
+        },
+        removeEmployee(id) {
+            this.employees = this.employees.filter(item => {
+                return item.id !== id
             })
         }
     }
