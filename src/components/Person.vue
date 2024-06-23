@@ -6,7 +6,16 @@
 <script>
 export default {
     name:"PersonComponent",
-    props: ["name","salary"],
+    props: {
+        name: {
+            type:String,
+            required:true,
+        },
+        salary: {
+            type: Number,
+            default: 15000
+        }
+    },
 }
 </script>
 <style scoped>
