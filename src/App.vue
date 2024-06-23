@@ -5,13 +5,16 @@
     <form @submit.prevent="handleSubmit">
       <label>ป้อนชื่อเล่น</label>
       <input type="text" ref="nickNameEl" />
-
       <button type="submit">บันทึก</button>
     </form>
-    <h1>ชื่อผู้สมัคร : {{ getFullName() }}</h1>
+    <h1>ชื่อผู้สมัคร : {{ getFullName }}</h1>
     <h1>ชื่อเล่น : {{ nickname }}</h1>
     <h2>{{ 500 + 200 }}</h2>
     <h2>อายุ : {{ age }}</h2>
+    <h1>เงินเดือน : {{ salary }} บาท</h1>
+    <h1>รายได้ต่อปี : {{ getIncome }} บาท</h1>
+    <h1>ตำแหน่งงาน : {{ getDepartment }}</h1>
+    <button @click="addSalary(5000)">เพิ่มเงินเดือน</button> 
     <button @click="toggleVisible()">{{ isVisible ? "ซ่อน" : "แสดง"}}รายละเอียด</button>
       <article v-show="isVisible">
         <h2>ที่อยู่ : <span v-html="address"></span></h2>
@@ -58,15 +61,13 @@ export default {
         weight: 60,
         status: false
       },
-      isVisible: false
+      isVisible: false,
+      salary: 20000
     }
   },
   methods: {
-    getFullName() {
-      return `${this.firstName} ${this.lastName}`
-    },
     showData() {
-      alert(this.getFullName())
+      alert(this.nickname);
     },
     increment(value) {
       this.age += value
@@ -82,7 +83,28 @@ export default {
     },
     toggleVisible() {
       this.isVisible = !this.isVisible
+    },
+    getRandomByMethod() {
+      return Math.random();
+    },
+    addSalary(value) {
+      this.salary += value;
     }
+  },
+  computed: {
+    getFullName() {
+      return `${this.firstName} ${this.lastName}`
+    },
+    getRandomByComputed() {
+      return Math.random();
+    },
+    getIncome() {
+      return this.salary * 12;
+    },
+    getDepartment() {
+      return this.salary >= 35000 ? "Project manager" : "Programmer";
+    }
+
   }
 }
 </script>
