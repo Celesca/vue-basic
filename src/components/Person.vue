@@ -1,20 +1,16 @@
 <template lang="">
     <div>
-       <h1> {{ message }} </h1>
+       <h1> ชื่อ : {{ name }} เงินเดือน : {{ salary }} </h1>
     </div>
 </template>
 <script>
 export default {
     name:"PersonComponent",
-    data() {
-        return {
-            message: "ข้อมูลพนักงาน"
-        }
-    }
+    props: ["name","salary"],
 }
 </script>
 <style scoped>
     h1 {
-        color: red;
+        color: blue;
     }
 </style>
